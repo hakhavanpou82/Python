@@ -1,0 +1,28 @@
+my_list = [12, 8, 16, 42, 20, 20, 12, 30, 51, 25, 23, 24, 20, 13]
+
+
+# Mean
+mean = sum(my_list)/len(my_list)
+print("Mean of my_list is: %s" %mean)
+
+# Median
+my_list.sort()
+if len(my_list) % 2 == 0:
+    m1 = my_list[len(my_list)//2]
+    m2 = my_list[len(my_list)//2 - 1]
+    median = (m1 + m2)/2
+else:
+    median = my_list[len(my_list)//2]
+print("Median of my_list is: %s" %median)
+
+# Mode
+frequency = {}
+for i in my_list:
+    frequency.setdefault(i, 0)
+    frequency[i]+=1
+
+frequent = max(frequency.values())
+for i, j in frequency.items():
+    if j == frequent:
+        mode = i
+print("Mode of my_list is: %s" %mode)

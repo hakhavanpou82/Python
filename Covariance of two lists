@@ -1,0 +1,15 @@
+# Covariance
+
+import math
+x_coordinates = [12, 2, 7, 4, 5]
+y_coordinates = [8, 11, 13, 1, 6]
+covariance_temp_sum = 0
+
+x_mean = math.fsum(x_coordinates) / len(x_coordinates)
+y_mean = math.fsum(y_coordinates) / len(y_coordinates)
+
+for n in range(len(x_coordinates)):
+    covariance_temp_sum += (x_coordinates[n] - x_mean) * (y_coordinates[n] - y_mean)
+
+covariance = covariance_temp_sum / len(x_coordinates)
+covariance

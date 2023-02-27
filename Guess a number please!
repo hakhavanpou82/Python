@@ -1,0 +1,13 @@
+import random
+n = random.randrange(1,50)
+guess = int(input("Please enter a number between 1 and 50: "))
+while n!= guess:
+    if guess < n:
+        print("Too low")
+        guess = int(input("Enter a greater number again: "))
+    elif guess > n:
+        print("Too high!")
+        guess = int(input("Enter a smaller number again: "))
+    else:
+      break
+print("Exactly! you guessed it right!!")

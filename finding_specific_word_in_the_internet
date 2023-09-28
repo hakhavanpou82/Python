@@ -1,0 +1,27 @@
+import requests
+from bs4 import BeautifulSoup
+
+# Replace "Hassan Akhavanpour" with the full name you want to search for
+full_name = "Hassan Akhavanpour"
+
+# Create a Google search URL with the full name query
+search_query = f"https://www.google.com/search?q={full_name.replace(' ', '+')}"
+
+# Send an HTTP GET request to Google and retrieve the search results page
+response = requests.get(search_query)
+
+# Check if the request was successful
+if response.status_code == 200:
+    # Parse the HTML content of the search results page
+    soup = BeautifulSoup(response.text, 'html.parser')
+    
+    # Find and extract the search result links (usually contained in <a> tags)
+    search_results = soup.find_all('a')
+    
+    # Loop through the search result links and print the websites
+    for link in search_results:
+        href = link.get('href')
+        if href.startswith('http'):
+            print(href)
+else:
+    print("Failed to retrieve search results.")
